@@ -1,6 +1,7 @@
-const { Sequelize } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 require('dotenv').config();
 
+// Conexión a la base de datos
 const sequelize = new Sequelize(
     process.env.DB_NAME, 
     process.env.DB_USER, 
@@ -13,6 +14,7 @@ const sequelize = new Sequelize(
     }
 );
 
+// Verificación de la conexión
 sequelize.authenticate()
     .then(() => {
         console.log('Conexión a la base de datos establecida correctamente.');
@@ -21,20 +23,5 @@ sequelize.authenticate()
         console.error('No se pudo conectar a la base de datos:', error);
     });
 
-const mysql = require('mysql2');
-const connection = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-});
-
-connection.connect((err) => {
-    if (err) {
-        console.error('Error al conectar a la base de datos (mysql2):', err);
-    } else {
-        console.log('Conexión a la base de datos (mysql2) establecida');
-    }
-});
-
-module.exports = { sequelize, connection };
+// Exportar la instancia de sequelize y DataTypes para usar en otros archivos
+module.exports = { sequelize, DataTypes };
