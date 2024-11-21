@@ -1,6 +1,6 @@
-const { sequelize, DataTypes } = require('../config/db'); // importación de la conexión
+const { sequelize, DataTypes } = require('../config/db'); 
 
-// modelo de Personaje
+
 const Personaje = sequelize.define('Personaje', {
     id: {
         type: DataTypes.INTEGER,
