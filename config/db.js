@@ -23,5 +23,5 @@ sequelize.authenticate()
         console.error('No se pudo conectar a la base de datos:', error);
     });
 
-// Exportar la instancia de sequelize y DataTypes para usar en otros archivos
+
 module.exports = { sequelize, DataTypes };
