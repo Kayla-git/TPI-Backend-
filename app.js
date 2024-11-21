@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     res.send('API de Batallas funcionando');
 });
 
-// Obtener todos los personajes
+// para todos los personajes
 app.get('/personajes', async (req, res) => {
     try {
         const personajes = await Personaje.findAll();
@@ -22,7 +22,7 @@ app.get('/personajes', async (req, res) => {
     }
 });
 
-// Obtener un personaje por id
+// para un personaje por id
 app.get('/personajes/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -82,7 +82,7 @@ app.post('/batallas', async (req, res) => {
     }
 });
 
-// Obtener todas las batallas
+// para todas las batallas
 app.get('/batallas', async (req, res) => {
     try {
         const batallas = await Batalla.findAll();
@@ -116,7 +116,7 @@ app.post('/features', async (req, res) => {
     }
 });
 
-// Verificación de la conexión a la base de datos con sequelize.authenticate
+// conexión a la base de datos con sequelize.authenticate
 sequelize.authenticate()
     .then(() => {
         console.log('Conexión exitosa a la base de datos');
