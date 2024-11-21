@@ -1,6 +1,6 @@
-const { sequelize, DataTypes } = require('../config/db'); // Correcta importación de la conexión
+const { sequelize, DataTypes } = require('../config/db'); // importación de la conexión
 
-// Definición del modelo de Personaje
+// modelo de Personaje
 const Personaje = sequelize.define('Personaje', {
     id: {
         type: DataTypes.INTEGER,
@@ -13,16 +13,16 @@ const Personaje = sequelize.define('Personaje', {
     },
     poder: {
         type: DataTypes.INTEGER,
-        allowNull: false, // No se puede dejar vacío
+        allowNull: false, 
     },
     imagen_url: {
         type: DataTypes.STRING,
-        allowNull: true, // Puede ser nulo, porque no todos los personajes tienen imagen
+        allowNull: true, // Puede ser nulo, porque no todos los personajes tienen imagen :,)
     }
 }, {
     tableName: 'personajes', // Nombre de la tabla en la base de datos
-    timestamps: false, // Deshabilita los campos createdAt y updatedAt
+    timestamps: false, 
 });
 
-// Exporta el modelo para usarlo en otras partes del proyecto
+
 module.exports = Personaje;
