@@ -1,6 +1,6 @@
-const { sequelize, DataTypes } = require('../config/db'); // Importa correctamente ambos
+const { sequelize, DataTypes } = require('../config/db'); 
 
-// Definimos el modelo 'Batalla'
+// el modelo 'Batalla'
 const Batalla = sequelize.define('Batalla', {
     id: {
         type: DataTypes.INTEGER,
@@ -17,17 +17,17 @@ const Batalla = sequelize.define('Batalla', {
     },
     ganador_id: {
         type: DataTypes.INTEGER,
-        allowNull: true, // Puede ser nulo (por ejemplo, si la batalla aún no tiene ganador)
+        allowNull: true, // Puede ser nulo
     },
     fecha: {
         type: DataTypes.DATE,
-        allowNull: false, // No puede ser nulo
+        allowNull: false, 
         defaultValue: DataTypes.NOW, // El valor por defecto es la fecha actual
     }
 }, {
     tableName: 'batallas', // El nombre de la tabla en la base de datos
-    timestamps: false // No se añaden columnas createdAt y updatedAt
+    timestamps: false // No se añaden columnas createdAt 
 });
 
-// Exportamos el modelo para usarlo en otros archivos
+// para verlo en otros archivos
 module.exports = Batalla;
