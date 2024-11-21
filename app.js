@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
-const { sequelize } = require('./config/db'); // Ahora solo importamos sequelize
+const { sequelize } = require('./config/db');
 const { Personaje, Batalla, Feature, FeatureType } = require('./models');
 
 app.use(express.json());
