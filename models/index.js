@@ -1,6 +1,6 @@
-const { sequelize, DataTypes } = require('../config/db'); // Aseguramos que sequelize y DataTypes estén disponibles
+const { sequelize, DataTypes } = require('../config/db'); 
 const Personaje = require('./personaje');
-const Batalla = require('./batalla');
+const Batalla = require('./batallas');
 const Feature = require('./feature');
 const FeatureType = require('./featureType');
 

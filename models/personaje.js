@@ -1,28 +1,34 @@
-const { sequelize, DataTypes } = require('../config/db'); // Correcta importación de la conexión
+const { sequelize, DataTypes } = require('../config/db');
 
-// Definición del modelo de Personaje
 const Personaje = sequelize.define('Personaje', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true, // Incrementa automáticamente
+        autoIncrement: true,
     },
     nombre: {
         type: DataTypes.STRING,
-        allowNull: false, // No se puede dejar vacío
+        allowNull: false,
     },
-    poder: {
-        type: DataTypes.INTEGER,
-        allowNull: false, // No se puede dejar vacío
-    },
-    imagen_url: {
+    universo: {
         type: DataTypes.STRING,
-        allowNull: true, // Puede ser nulo, porque no todos los personajes tienen imagen
+        allowNull: false,
+    },
+    nivel: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    habilidades: {
+        type: DataTypes.STRING,
+        allowNull: true,
+    },
+    fecha_creacion: {
+        type: DataTypes.DATE,
+        allowNull: true,
     }
 }, {
-    tableName: 'personajes', // Nombre de la tabla en la base de datos
-    timestamps: false, // Deshabilita los campos createdAt y updatedAt
+    tableName: 'personajes',
+    timestamps: false,
 });
 
-// Exporta el modelo para usarlo en otras partes del proyecto
 module.exports = Personaje;
