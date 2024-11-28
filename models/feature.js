@@ -1,24 +1,22 @@
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/db').sequelize;  // Aseguramos que estamos utilizando la conexión correcta
+const sequelize = require('../config/db').sequelize;  
 
 const Feature = sequelize.define('Feature', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,  // Para que sea auto incrementable
+        autoIncrement: true,  
     },
     nombre: {
         type: DataTypes.STRING,
-        allowNull: false  // Aseguramos que el nombre no pueda ser nulo
+        allowNull: false  
     },
-    // Puedes agregar más atributos si es necesario.
+    // Despues podemos agregar mas :D jijijojojejejjuju
 }, {
-    tableName: 'features',  // Especificamos el nombre de la tabla en la base de datos
-    timestamps: false  // Si no necesitas las columnas createdAt/updatedAt
+    tableName: 'features',  
+    timestamps: false  
 });
 
-// Aquí agregas las relaciones con otros modelos si es necesario
-// Ejemplo si "Feature" tiene una relación con "Personaje":
-// Feature.belongsTo(Personaje, { foreignKey: 'personaje_id' });
+
 
 module.exports = Feature;

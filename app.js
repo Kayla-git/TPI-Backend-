@@ -5,6 +5,8 @@ const { sequelize } = require('./config/db');
 const personajesRoutes = require('./routes/personajes'); 
 const batallasRoutes = require('./routes/batallas'); 
 const usuariosRoutes = require('./routes/usuarios');
+const { Personaje, Batalla, Feature, FeatureType } = require('./models');
+
 
 app.use(express.json());
 
@@ -14,11 +16,10 @@ app.get('/', (req, res) => {
     res.send('API de Batallas funcionando');
 });
 
-// Conectar rutas
+
 app.use('/personajes', personajesRoutes);
 app.use('/batallas', batallasRoutes);
 app.use('/usuarios', usuariosRoutes);
-
 
 sequelize.authenticate()
     .then(() => {

@@ -1,6 +1,5 @@
-const { sequelize, DataTypes } = require('../config/db');  
-const Personaje = require('./personaje');  
-
+const { sequelize, DataTypes } = require('../config/db'); 
+const Personaje = require('./personaje'); 
 const Batalla = sequelize.define('Batalla', {
     nombre: {
         type: DataTypes.STRING(100),
@@ -10,11 +9,11 @@ const Batalla = sequelize.define('Batalla', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
     },
-    participante1: {
+    participante1: { 
         type: DataTypes.INTEGER,
         allowNull: false,
     },
-    participante2: {
+    participante2: {  
         type: DataTypes.INTEGER,
         allowNull: false,
     },
@@ -28,9 +27,8 @@ const Batalla = sequelize.define('Batalla', {
     },
 });
 
-
 Batalla.belongsTo(Personaje, { foreignKey: 'participante1' });
 Batalla.belongsTo(Personaje, { foreignKey: 'participante2' });
-Batalla.belongsTo(Personaje, { foreignKey: 'ganador_id' });  
+Batalla.belongsTo(Personaje, { foreignKey: 'ganador_id' });
 
 module.exports = Batalla;

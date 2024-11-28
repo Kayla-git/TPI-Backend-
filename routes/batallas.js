@@ -16,30 +16,29 @@ router.get('/', async (req, res) => {
 
 
 router.post('/', [
-    body('personaje1_id').isInt({ min: 1 }).withMessage('El ID del primer personaje debe ser un número mayor a 0'),
-    body('personaje2_id').isInt({ min: 1 }).withMessage('El ID del segundo personaje debe ser un número mayor a 0'),
+    body('participante1').isInt({ min: 1 }).withMessage('El ID del primer personaje debe ser un número mayor a 0'),
+    body('participante2').isInt({ min: 1 }).withMessage('El ID del segundo personaje debe ser un número mayor a 0'),
     body('ganador_id').isInt({ min: 1 }).withMessage('El ID del ganador debe ser un número mayor a 0'),
-    body('fecha').isISO8601().withMessage('La fecha debe ser válida')
+    body('fecha_batalla').isISO8601().withMessage('La fecha debe ser válida')
 ], async (req, res) => {
-    
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const { personaje1_id, personaje2_id, ganador_id, fecha } = req.body;
+    const { participante1, participante2, ganador_id, fecha_batalla } = req.body;
 
     try {
         const batalla = await Batalla.create({
-            nombre: 'Batalla épica',  
-            participante1: personaje1_id,
-            participante2: personaje2_id,
+            nombre: 'Batalla épica',
+            participante1,
+            participante2,
             ganador_id,
-            fecha_batalla: fecha
+            fecha_batalla
         });
         res.status(201).json(batalla);
     } catch (error) {
-        console.error('Detalles del error:', error);  
+        console.error('Detalles del error:', error);
         res.status(500).json({ error: 'Error al crear la batalla' });
     }
 });

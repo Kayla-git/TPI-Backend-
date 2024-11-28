@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Validaciones para un nuevo usuario
+
 router.post('/', [
     body('nombre_usuario').notEmpty().withMessage('El nombre de usuario es obligatorio'),
     body('email').isEmail().withMessage('El email debe ser válido'),
@@ -33,5 +33,5 @@ router.post('/', [
     }
 });
 
-// Exportar el router
+
 module.exports = router;

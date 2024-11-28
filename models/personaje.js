@@ -10,6 +10,8 @@ const Personaje = sequelize.define('Personaje', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+
+
     universo: {
         type: DataTypes.STRING,
         allowNull: false,

@@ -44,14 +44,14 @@ router.post('/', [
     }
 });
 
-// Actualizar un personaje por ID
+
 router.put('/:id', async (req, res) => {
-    const { id } = req.params; // ID del personaje a actualizar
+    const { id } = req.params; 
     const { nombre, universo, nivel, habilidades, fecha_creacion } = req.body;
     try {
         const personajeActualizado = await Personaje.update(
-            { nombre, universo, nivel, habilidades, fecha_creacion }, // Datos a actualizar
-            { where: { id } } // Condición para buscar el personaje
+            { nombre, universo, nivel, habilidades, fecha_creacion }, 
+            { where: { id } } 
         );
 
         if (personajeActualizado[0] === 0) {
@@ -65,9 +65,9 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// Eliminar un personaje por ID
+
 router.delete('/:id', async (req, res) => {
-    const { id } = req.params; // ID del personaje que se va a eliminar
+    const { id } = req.params; 
     try {
         const personajeEliminado = await Personaje.destroy({ where: { id } });
 
@@ -82,5 +82,5 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
-// Exportar el router
+
 module.exports = router;
